@@ -1,37 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => {
-	const course = {
-	name: 'Half Stack application development',
-	parts : [ 
-	{
-	  name: 'Fundamentals of React',
-	  exercises: 10
-	},
-	 {
-	  name: 'Using props to pass data',
-	  exercises: 7
-	},
-	{
-	  name: 'State of a component',
-	  exercises: 14
-	  
-		}
-	]
-}
+const App=() =>{
+  const course = 'Half Stack Application development'
+  const part1 = 'Fundamentals of React '
+  const excercises1 = 10
+  const part2 = 'Using props to pass data '
+  const excercises2 = 7
+  const part3 = 'State of a component '
+  const excercises3 = 14
+const totals = excercises1+excercises2+excercises3
+
+
   return (
     <div>
       
-      <Header course={course.name}/>
-      <Content parts ={course.parts}/>
-      <Total parts = {course.parts}/>
+      <Header course={course}/>
+      {/*<Content part1= {part1} excercises1={excercises1} />
+      <Content part2= {part2} excercises2={excercises2} />
+      <Content part3= {part3} excercises3={excercises3} />*/}
 
+      <Content1/>
+      {/*<Totals/>*/}
+
+      <Total totals={totals}/>
     </div>
   )
 }
 
 const Header=(props) =>{
+
+
   return (
     <div>
       <h1>{props.course}</h1>
@@ -39,7 +38,33 @@ const Header=(props) =>{
   )
 }
 
-const Total = () => {
+const Content=(props) =>{
+    
+      
+  return (
+ 
+ <div>
+   {/*<p> {props.part1}{props.excercises1}</p>
+        <p> {props.part2}{props.excercises2}</p>
+        <p> {props.part3}{props.excercises3}</p>*/}
+
+    <Part part={props.part1} excerise={props.excercises1}/>
+    <Part part={props.part2} excerise={props.excercises2}/>
+    <Part part={props.part3} excerise={props.excercises3}/>
+    </div>
+  )
+}
+
+const Total=(props) =>{
+
+  return (
+    <div>
+      <p>Number of excercises {props.totals}</p>
+    </div>
+  )
+}
+
+const Totals = () => {
 	var num = 0
 	
 	for (var i = 0; i < PartLists.length; i++) {
@@ -82,7 +107,7 @@ const PartLists = [
 	}
 ];
 
-const Content = () => {
+const Content1 = () => {
 	const lists = PartLists.map(
 		function(list) {
 			return (
